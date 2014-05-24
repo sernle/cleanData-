@@ -15,6 +15,7 @@ getData <- function(typeData, activityCode, featureNames) {
   colNames <- names(features)
   mean_std_features <- colNames[getMeasurementsColumns(colNames, "[mM]ean|[sS]td")]
   features <- features[, mean_std_features]
+  write.table(featureNames[getMeasurementsColumns(featureNames, "[mM]ean|[sS]td")], "meanAndStdFeatures.txt", row.names=FALSE, col.names=FALSE)
   
   #activities
   filePath <- paste(typeData,"/y_",typeData,".txt",sep="")
@@ -37,10 +38,10 @@ tidyData <- rbind(getData("test", activityCode, featureNames), getData("train", 
 write.table(tidyData, "tidyData.csv", row.names=FALSE)
 #step 5
 library(reshape2)
-meltTidyData <- melt(tidyData, id=c("subjects", "activities"))
+meltTidyData <- melt(tidyData, id=c("activities","subjects"))
 library(plyr)
-averageMovementBySubjectAndActivities <- ddply(meltTidyDat,.(subjects, activities), summarize, mean=mean(value))
-write.table(averageMovementBySubjectAndActivities, "averageMovementBySubjectAndActivities.csv", row.names=FALSE)
+averageMovementBySubjectAndActivities <- ddply(meltTidyData,.(subjects, activities), summarize, mean=mean(value))
+write.table(averageMovementBySubjectAndActivities, "averageMovementByActivityAndSubject.csv", row.names=FALSE)
 
 
 #totalOrderData <- totalData[order(totalData$subjects),]

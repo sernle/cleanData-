@@ -35,13 +35,13 @@ activityCode <- read.csv("activity_labels.txt", sep=" ", header = FALSE, strings
 featureNames <- read.csv("features.txt", sep=" ", header = FALSE, stringsAsFactors = FALSE)[,2]
 tidyData <- rbind(getData("test", activityCode, featureNames), getData("train", activityCode, featureNames))
 #step 1:4
-write.table(tidyData, "tidyData.csv", row.names=FALSE)
+write.table(tidyData, "tidyData.txt", row.names=FALSE)
 #step 5
 library(reshape2)
 meltTidyData <- melt(tidyData, id=c("activities","subjects"))
 library(plyr)
 averageMovementBySubjectAndActivities <- ddply(meltTidyData,.(subjects, activities), summarize, mean=mean(value))
-write.table(averageMovementBySubjectAndActivities, "averageMovementByActivityAndSubject.csv", row.names=FALSE)
+write.table(averageMovementBySubjectAndActivities, "averageMovementByActivityAndSubject.txt", row.names=FALSE)
 
 
 #totalOrderData <- totalData[order(totalData$subjects),]

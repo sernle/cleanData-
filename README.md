@@ -37,5 +37,5 @@ Clean Data
 * Create data set with the average of each variable for each activity and each subject.
   * reshape data by using melt on activities and subjects
   * for each activity and subject, apply mean on the value column
-  * write down the result in averageMovementByActivityAndSubject.csv
+  * write down the result in averageMovementByActivityAndSubject.txt
 

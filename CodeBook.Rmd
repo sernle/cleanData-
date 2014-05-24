@@ -1,0 +1,38 @@
+Tidy data from UCI HAR Dataset
+========================================================
+
+
+## For each record of tidy data set, it is provided
+========================================================
+
+* An identifier of the subject  
+* Its activity label 
+* A 86-feature vector with mean and standard variation of time and frequency domain variables (a cutdown of 561-feature vector in the original data)
+
+## For each record of average movement by activity and subject data set, it is provided
+========================================================
+* An identifier of the subject  
+* Its activity label 
+* A method name of collect data
+* a mean value of the method name by each activity and each subject
+
+
+## The tidy data sets includes the following
+========================================================
+* README.Rmd : show how the script which use to transform data work
+* meanAndStdFeatures.txt : show complete list of the features in tidy data set
+* tidyData.csv : all the recorded data with each record have been discribed above  
+* averageMovementByActivityAndSubject.csv : mean of the recorded data by each activity and each subject
+
+## Notes
+========================================================
+The tidy data is a product of merging two data sets (train, test) from the original data.
+  * subject identifier (subject files), their activities (Y files) and all the measurements of mean & std (X files) have been merged
+  * represent the activities as activity labels instead of code.
+  
+The original data have been taken from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip, which is the data for this study http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones .
+
+
+
+
+
